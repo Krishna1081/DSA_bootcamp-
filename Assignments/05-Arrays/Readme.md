@@ -1,4 +1,4 @@
-# # Day 11 
+## Day 11 
 # Program 1: 
 One array of integers is given as an input ,which is initially increasing and then decreasing or 
 it can be only increasing or decreasing , you need to find the maximum value in the array in O(Log n) Time complexity and O(1) Space Complexity 
