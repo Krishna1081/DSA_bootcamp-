@@ -1,5 +1,5 @@
-## Day 11 
-# Program 1: 
+# Day 11 
+## Program 1: 
 One array of integers is given as an input ,which is initially increasing and then decreasing or 
 it can be only increasing or decreasing , you need to find the maximum value in the array in O(Log n) Time complexity and O(1) Space Complexity 
 Asked in: Amazon, Microsoft, Uber
@@ -52,7 +52,7 @@ public class Increasing_Decreasing_Max_Value {
     }
 }
 
-# Program 2: 
+## Program 2: 
 We rotate an ascending order sorted array at some point unknown to user.
 So for instance, 3 4 5 6 7 might become 5 6 7 3 4. Modify binary search algorithm to
 find an element in the rotated array in O(log n) time and O(1) Space complexity
@@ -94,7 +94,7 @@ public class Rotated_Array {
     }
 }
 
-# Program 3:
+## Program 3:
 Array consist of only 0's, 1's and 2's.
 Write an algorithm to sort  this array in O(n) time complexity and
 O(1) Space complexity with only one traversal Asked in : Amazon, Microsoft, Adobe, WalmartLabs
@@ -145,7 +145,7 @@ public class Arrange_0_1_2 {
     }
 }
 
-# Program 4:
+## Program 4:
 Given an array arr, write a function to move all 0's to the end of it while maintaining the relative order of
 the non-zero elements in O(n) Time complexity and O(1) Space complexity with single traversal allowed
 
