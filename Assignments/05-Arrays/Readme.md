@@ -5,31 +5,6 @@ it can be only increasing or decreasing , you need to find the maximum value in 
 Asked in: Amazon, Microsoft, Uber
 
 ## Code:
-package com.company;
-
-import java.util.Arrays;
-//import java.util.Scanner;
-
-public class Increasing_Decreasing_Max_Value {
-    public static void main(String[] args) {
-        /*
-//        Scanner input = new Scanner(System.in);
-//        System.out.print("Enter the number of elements in the array: ");
-//        int n = input.nextInt();
-//        int[] arr = new int[n];
-//        for (int i = 0; i < n; i++) {
-//            System.out.print("Enter the " + (i+1) + " of " + n + " number: ");
-//            int m = input.nextInt();
-//            arr[i] = m;
-//        }
-        */
-        int[] arr = {6,9,15,25,35,50,41,29,23,8};
-        System.out.println("Array is: " + Arrays.toString(arr));
-        int start = 0;
-        int end = arr.length-1;
-        System.out.println("Array's max value: " + Max_Value(arr,start,end));
-    }
-
     private static int Max_Value(int[] arr, int start, int end) {
         if (start == end){
             return arr[start];
