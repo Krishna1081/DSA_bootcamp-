@@ -2,6 +2,7 @@
 ## Program 1: 
 One array of integers is given as an input ,which is initially increasing and then decreasing or 
 it can be only increasing or decreasing , you need to find the maximum value in the array in O(Log n) Time complexity and O(1) Space Complexity 
+
 Asked in: Amazon, Microsoft, Uber
 
 ## Code:
@@ -34,16 +35,16 @@ So for instance, 3 4 5 6 7 might become 5 6 7 3 4. Modify binary search algorith
 find an element in the rotated array in O(log n) time and O(1) Space complexity
 
 ## Code:
-package com.company;
+    package com.company;
 
-import java.util.Scanner;
+    import java.util.Scanner;
 
-public class Rotated_Array {
+    public class Rotated_Array {
     public static void main(String[] args) {
         /*
-//        We rotate an ascending order sorted array at some point unknown to user.
-//        So for instance, 3 4 5 6 7 might become 5 6 7 3 4. Modify binary search algorithm to
-//        find an element in the rotated array in O(log n) time and O(1) Space complexity
+    //        We rotate an ascending order sorted array at some point unknown to user.
+    //        So for instance, 3 4 5 6 7 might become 5 6 7 3 4. Modify binary search algorithm to
+    //        find an element in the rotated array in O(log n) time and O(1) Space complexity
         */
         Scanner input = new Scanner(System.in);
         int[] arr = {4, 5, 6, 7, 1, 2};
