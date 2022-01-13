@@ -362,4 +362,182 @@ Asked in: GoldmanSachs, Expedia, OLA
         }
     }
 
+# Day 13
+## Program 10:
+List of arrival and departure time is given, Find the minimum number of platforms are required for the railway as no train waits
+## Code:
+    package com.company;
+
+    import java.util.Arrays;
+
+    public class Arrival_Departure {
+        public static void main(String[] args) {
+            int[] arrival = {100,140,150,200,215,400};
+            int[] departure = {110,300,220,230,315,600};
+            Arrays.sort(departure);
+            Arrays.sort(arrival);
+            int n = arrival.length;
+            System.out.println("Minimum platforms needed: " + find_minimum_platform(arrival,departure,n));
+        }
+
+        private static int find_minimum_platform(int[] arrival, int[] departure, int n) {
+            int plat_needed = 1;
+            int max_platform = 1;int i = 1;int j = 0;
+            while(i<n){
+                if (arrival[i] <= departure[j]){
+                    plat_needed++;
+                    i++;
+                    if (plat_needed>max_platform){
+                        max_platform = plat_needed;
+                    }
+                }else{
+                    plat_needed--;
+                    j++;
+                }
+            }
+            return max_platform;
+        }
+    }
+    
+## Program 11:
+There are N children standing in a line with some rating value. You want to distribute a minimum number of candies to these children such that:
+Each child must have at least one candy.
+The children with higher ratings will have more candies than their neighbors.
+You need to write a program to calculate the minimum candies you must give.
+## Code:
+    package com.company;
+
+
+    public class Children_Need_Candy {
+        public static void main(String[] args) {
+            /*
+            There are N children standing in a line with some rating value.
+            You want to distribute a minimum number of candies to these children such that:
+            Each child must have at least one candy.
+            The children with higher ratings will have more candies than their neighbors.
+            You need to write a program to calculate the minimum candies you must give.
+             */
+            int[] ranking = {1,5,2,1};
+            int n = ranking.length;
+            int ans = Sum_Candy(ranking,n);
+            System.out.println("Minimum number of candies: " + ans);
+        }
+
+        private static int Sum_Candy(int[] ranking, int n) {
+            int[] left = new int[ranking.length];
+            int[] right = new int[ranking.length];
+            int result = 0;
+            left[0] = 1;
+            right[ranking.length-1] = 1;
+            for (int i = 1; i < n; i++) {
+                if (ranking[i] > ranking[i-1]){
+                    left[i] = left[i-1] + 1;
+                }else{
+                    left[i]=1;
+                }
+            }
+            for (int i = ranking.length-2; i >= 0; i--) {
+                if (ranking[i] >= ranking[i+1]){
+                    right[i] = right[i+1] + 1;
+                }else{
+                    right[i] = 1;
+                }
+            }
+            for (int i = 0; i < ranking.length; i++) {
+                result += Math.max(right[i],left[i]);
+            }
+            return result;
+        }
+    }
+
+## Program 12:
+
+## Code:
+    package com.company;
+
+
+    public class Spiral_Matrix {
+        public static void main(String[] args) {
+            int[][] arr = {
+                    {1,2,3,4},
+                    {5,6,7,8},
+                    {9,10,11,12},
+                    {13,14,15,16}
+            };
+            int R = 4;
+            int C = 4;
+            Output_Spiral_Matrix(R,C,arr);
+
+        }
+
+        private static void Output_Spiral_Matrix(int m,int n,int[][] arr) {
+            int i, k = 0, l = 0;
+            while (k < m && l < n) {
+                for (i = l; i < n; ++i) {
+                    System.out.print(arr[k][i] + " ");
+                }
+                k++;
+                for (i = k; i < m; ++i) {
+                    System.out.print(arr[i][n - 1] + " ");
+                }
+                n--;
+
+                if (k < m) {
+                    for (i = n - 1; i >= l; --i) {
+                        System.out.print(arr[m - 1][i] + " ");
+                    }
+                    m--;
+                }
+                if (l < n) {
+                    for (i = m - 1; i >= k; --i) {
+                        System.out.print(arr[i][l] + " ");
+                    }
+                    l++;
+                }
+            }
+        }
+    }
+
+## Program 13:
+you are given a matrix of m x n elements (m rows, n columns), Print all elements of the matrix in spiral order in O(m*n) Time Complexity and O(1) Space Complexity 
+
+Asked in: Microsoft, OLA, PayTm, Oracle
+## Code:
+    package com.company;
+
+    public class Diagonal_Matrix {
+        public static void main(String[] args) {
+            int[][] arr = {
+                    {1,2,3},
+                    {4,5,6},
+                    {7,8,9}
+            };
+            int m = arr.length;
+            int n = arr[0].length;
+            Matrix_Sum(arr,m,n);
+        }
+
+        private static void Matrix_Sum(int[][] arr,int m, int n) {
+            for (int k = 0; k < m; k++) {
+                int i = k;
+                int j = 0;
+                while (i>=0){
+                        System.out.print(arr[i][j] + " ");
+                        i = i-1;
+                        j = j+1;
+                }
+                System.out.println();
+            }
+            for (int k = 1; k < n; k++) {
+                int i = m-1;
+                int j = k;
+                while (j <= n-1){
+                    System.out.print(arr[i][j] + " ");
+                    i = i-1;
+                    j = j+1;
+                }
+                System.out.println();
+            }
+        }
+    }
 
