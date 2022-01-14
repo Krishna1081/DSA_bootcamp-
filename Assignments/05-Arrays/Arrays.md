@@ -540,4 +540,130 @@ Asked in: Microsoft, OLA, PayTm, Oracle
             }
         }
     }
+# Day 14
+## Program 14:
+Array of length n having integers 1 to n with some elements being repeated. Count frequencies of all elements from 1 to n in Time Complexity O(n) and Space Complexity O(1) Asked in : PayTm, VmWare, Amazon
+## Code:
+    package com.company;
 
+    public class Count_Frequency {
+        public static void main(String[] args) {
+            int[] arr = {5,2,2,3,4,5,1};
+            int n = arr.length;
+            Freq(arr,n);
+        }
+
+        private static void Freq(int[] arr, int n) {
+            for (int i = 0; i < n; i++) {
+                arr[i]--;
+            }
+            for (int i = 0; i < n; i++) {
+                arr[arr[i] % n] = arr[arr[i] % n] + n;
+            }
+            for (int i = 0; i < n; i++) {
+                System.out.println((i+1) + " " + arr[i]/n);
+            }
+        }
+    }
+
+## Program 15:
+Given an array of integer, write an efficient algorithm to find majority number in that array in Time Complexity O(n) and Space Complexity O(1)
+## Code:
+    package com.company;
+
+    public class Majority_Element {
+        public static void main(String[] args) {
+            int[] arr = {1, 8, 7, 4, 1, 2, 2, 2, 2, 2, 2};
+            int ans = Find_Element(arr);
+            System.out.println("Majority Element is: " + ans);
+        }
+
+        private static int Find_Element(int[] arr) {
+            int majority = arr[0];
+            int count = 1;
+            for (int j = 1; j < arr.length; j++) {
+                if (majority == arr[j]){
+                    count++;
+                }
+                else{
+                    count--;
+                }
+                if (count == 0){
+                    majority = arr[j];
+                    count = 1;
+                }
+            }
+            return majority;
+        }
+    }
+
+## Program 16:
+An array is given as Input where ith element is the price of a given stock on day You were permitted to complete unlimited transaction. Derive an algorithm to find the maximum profit in O(n) Time complexity and O(n) Space Complexity Asked in: Amazon, Microsoft, Flipkart, DE-Shaw
+## Code:
+    package com.company;
+
+    public class Stock_Buy_Sell {
+        public static void main(String[] args) {
+            int[] price = { 98, 178, 250, 300, 40, 540, 690 };
+            System.out.print("\nTotal profit earned is " + findMaxProfit(price));
+        }
+        // Function to find the maximum profit earned by buying and
+        // selling shares any number of times
+        public static int findMaxProfit(int[] price)
+        {
+            // keep track of the maximum profit gained
+            int profit = 0;
+            // initialize the local minimum to the first element's index
+            int j = 0;
+            // start from the second element
+            for (int i = 1; i < price.length; i++)
+            {
+                // update the local minimum if a decreasing sequence is found
+                if (price[i - 1] > price[i]) {
+                    j = i;
+                }
+                // sell shares if the current element is the peak,
+                // i.e., (`previous <= current > next`)
+                if (price[i - 1] <= price[i] &&
+                        (i + 1 == price.length || price[i] > price[i + 1]))
+                {
+                    profit += (price[i] - price[j]);
+                    System.out.printf("Buy on day %d and sell on day %d\n", j + 1, i + 1);
+                }
+            }
+            return profit;
+        }
+    }
+
+## Program 17:
+String is given as input that contains only lowercase letters, remove duplicate letters so that every letter appears once In O(n) Time Complexity and O(1) Space Complexity
+## Code:
+    package com.company;
+
+    import java.util.Scanner;
+
+    public class Remove_Duplicate_String_Letters {
+        public static void main(String[] args) {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter the string with duplicate characters: ");
+            String string = input.nextLine();
+            String ans = Remove_Duplicate(string);
+            System.out.println("After removing duplicate values: " + ans);
+
+        }
+
+        private static String Remove_Duplicate(String string) {
+            int[] ascii = new int[256];
+            char[] str1 = string.toCharArray();
+            for (int i = 0; i < str1.length; i++) {
+                if (ascii[str1[i]] == 0){
+                    ascii[str1[i]] = -1;
+                }
+                else if (ascii[str1[i]] == -1){
+                    str1[i] = '\0';
+                }
+            }
+            String str2 = String.valueOf(str1);
+            return str2.replaceAll("\0","");
+        }
+    }
