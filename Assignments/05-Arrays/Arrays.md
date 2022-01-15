@@ -667,3 +667,121 @@ String is given as input that contains only lowercase letters, remove duplicate 
             return str2.replaceAll("\0","");
         }
     }
+# Day 15
+## Program 18:
+Matrix n*n is given, where all elements in any individual row or column are sorted. In such a matrix, we have to find the position of a value in O(n) Time Complexity and O(1) Space Complexity
+## Code:
+package com.company;
+
+import java.util.Scanner;
+
+public class Find_Element_Multidimensional_Array {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[][] matrix = {{ 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 }};
+        int N = matrix.length;
+        for (int[] ints : matrix) {
+            for (int j = 0; j < N; j++)
+                System.out.print(ints[j] + " ");
+            System.out.println();
+        }
+        System.out.println("Enter the value you want to search in the array: ");
+        int value = input.nextInt();
+        Find_Element(matrix,N,value);
+    }
+
+    private static void Find_Element(int[][] matrix, int n, int value) {
+        int i = 0;
+        int j=n-1;
+        while(i<n && j>=0){
+            if(matrix[i][j] == value){
+                System.out.println("Row: " + i + " " + "Column: " + j);
+                return;
+            }
+            if(matrix[i][j] > value){
+                j--;
+            }
+            else{
+                i++;
+            }
+        }
+        System.out.println("Value Not Found");
+    }
+}
+
+## Program 19:
+You are in a party of N people, where only one person is known to everyone. Such a person may be present at the party, if yes, (s)he doesn’t know anyone at the party. Your task is to find the celebrity at the party in Time Complexity O(n) Asked in: Google, Flipkart, Amazon, Microsoft
+## Code:
+package com.company;
+
+public class Celebrity_Problem {
+    public static void main(String[] args) {
+        int n = 4;
+        int result = findCelebrity(n);
+        if (result == -1)
+            {
+                System.out.println("No Celebrity");
+            }
+        else
+            System.out.println("Celebrity is " + result);
+    }
+
+    private static int findCelebrity(int n) {
+        int a = 0;
+        int b = n - 1;
+        while (a < b)
+        {
+            if (knows(a, b))
+                    a++;
+            else
+                b--;
+        }
+
+            for (int i = 0; i < n; i++)
+                {
+                    if (i != a && (knows(a, i) || !knows(i, a)))
+                            return -1;
+                }
+            return a;
+    }
+
+    private static boolean knows(int a, int b) {
+        int[][] matrix = {{ 0, 0, 1, 0 },
+                       { 0, 0, 1, 0 },
+                       { 0, 0, 0, 0 },
+                       { 0, 0, 1, 0 }};
+        boolean result = matrix[a][b] == 1;
+        return result;
+    }
+}
+
+## Program 20:
+You are given a square matrix, You need to rotate the matrix in a clockwise direction by 90 degrees in Time Complexity O(m*n) and No Extra Space i.e O(1) Asked in : Facebook, Google, Amazon, Microsoft
+## Code:
+package com.company;
+
+public class Rotate_Matrix_90_Degree {
+    public static void main(String[] args) {
+        int[][] matrix = {{ 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 }};
+        int N = 4;
+        Rotate_90_Degree(matrix,N);
+
+        for (int i = 0; i < N; i++){
+            for (int j = 0; j < N; j++)
+                System.out.print( matrix[i][j] + " ");
+            System.out.println();
+        }
+    }
+
+    private static void Rotate_90_Degree(int[][] matrix,int N) {
+        for (int i = 0; i < N/2; i++) {
+            for (int j = i; j < N-i-1; j++) {
+                int temp = matrix[i][N-1-j];
+                matrix[j][N-1-j] = matrix[i][j];
+                matrix[i][j] = matrix[N-1-j][i];
+                matrix[N-1-j][i] = matrix[N-1-i][N-1-j];
+                matrix[N-1-i][N-1-j] = temp;
+            }
+        }
+    }
+}
