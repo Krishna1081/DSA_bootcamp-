@@ -821,29 +821,29 @@ Sample Output 0
 3 7 11
 
 # Code:
-package com.company;
-import java.util.Scanner;
-public class Alice_Game {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int [] l = new int[n/2];
-        int [] r = new int[n/2];
-        int [] arr = new int[n/2];
-        for(int i=0;i<n/2;i++){
-            l[i]= in.nextInt();
+    package com.company;
+    import java.util.Scanner;
+    public class Alice_Game {
+        public static void main(String[] args) {
+            Scanner in = new Scanner(System.in);
+            int n = in.nextInt();
+            int [] l = new int[n/2];
+            int [] r = new int[n/2];
+            int [] arr = new int[n/2];
+            for(int i=0;i<n/2;i++){
+                l[i]= in.nextInt();
+            }
+            for(int i=0;i<n/2;i++){
+                r[i]= in.nextInt();
+            }
+            for(int i=0;i<n/2;i++){
+                arr[i] = (l[i]+r[i])/2;
+            }
+            in.close();
+            for(int i=0;i<n/2;i++)
+                System.out.print(arr[i]+" ");
         }
-        for(int i=0;i<n/2;i++){
-            r[i]= in.nextInt();
-        }
-        for(int i=0;i<n/2;i++){
-            arr[i] = (l[i]+r[i])/2;
-        }
-        in.close();
-        for(int i=0;i<n/2;i++)
-            System.out.print(arr[i]+" ");
     }
-}
 
 # Program 22
 Sam has been given an array of positive integers and his friend has given him a non-negative integer target. Both of them got the assignment to find the minimal length of a contiguous subarray of which the sum is greater than or equal to the target. If there is no such subarray, return 0 instead. Help Sam and his friend in finding the minimal length.
@@ -875,18 +875,18 @@ Sample Output 0
 
 # Code:
 # Could not do this in Java maybe later, I will try doing it but as of now only in python. 
-array = [2, 3, 1, 2, 4, 3]
-n = int(input("Enter the target number: "))
-l1 = []
-var = 0
-for i in range(len(array)):
-    l1.append(array[i])
-    if (len(l1)>=2):
-        sum = 0
-        for i in range(len(l1)):
-            sum += l1[i]
-        if(sum >= n):
-            var = len(l1)
-        l1.pop(0)
-print(var)
+    array = [2, 3, 1, 2, 4, 3]
+    n = int(input("Enter the target number: "))
+    l1 = []
+    var = 0
+    for i in range(len(array)):
+        l1.append(array[i])
+        if (len(l1)>=2):
+            sum = 0
+            for i in range(len(l1)):
+                sum += l1[i]
+            if(sum >= n):
+                var = len(l1)
+            l1.pop(0)
+    print(var)
 
