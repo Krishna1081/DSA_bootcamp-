@@ -786,7 +786,7 @@ public class Rotate_Matrix_90_Degree {
     }
 }
 # Day 16
-# Program 21
+## Program 21
 Alice loves to play games with her friends. Once she had a 0-indexed array arr consisting of n positive integers. She chose an arbitrary positive integer x and created two new 0-indexed integer arrays left and right in the following manner:
 
 left[i] = arr[i] - x, for every index i where 0 <= i < n
@@ -820,7 +820,7 @@ Sample Output 0
 
 3 7 11
 
-# Code:
+## Code:
     package com.company;
     import java.util.Scanner;
     public class Alice_Game {
@@ -845,7 +845,7 @@ Sample Output 0
         }
     }
 
-# Program 22
+## Program 22
 Sam has been given an array of positive integers and his friend has given him a non-negative integer target. Both of them got the assignment to find the minimal length of a contiguous subarray of which the sum is greater than or equal to the target. If there is no such subarray, return 0 instead. Help Sam and his friend in finding the minimal length.
 
 Input Format
@@ -873,8 +873,8 @@ Sample Output 0
 
 2
 
-# Code:
-# Could not do this in Java maybe later, I will try doing it but as of now only in python. 
+## Code:
+## Could not do this in Java maybe later, I will try doing it but as of now only in python. 
     array = [2, 3, 1, 2, 4, 3]
     n = int(input("Enter the target number: "))
     l1 = []
