@@ -173,24 +173,24 @@ Explanation:
 Both customers are considered the richest with a wealth of 6 each, so return 6.
 
 ## Code:
-  class Solution {
-      public int maximumWealth(int[][] accounts) {
-          // person = rol 
-         // account = col
-          int ans  = Integer.MIN_VALUE;
-          for(int[] ints: accounts){
-          // when you start a new col, take a new sum for that row
-              int sum = 0;
-              for(int anint: ints){
-                  sum+=anint;
-              }
-              if(sum>ans){
-                  ans= sum;
-              }
-          }
-          return ans;
-      }
-  }
+    class Solution {
+        public int maximumWealth(int[][] accounts) {
+            // person = rol 
+           // account = col
+            int ans  = Integer.MIN_VALUE;
+            for(int[] ints: accounts){
+            // when you start a new col, take a new sum for that row
+                int sum = 0;
+                for(int anint: ints){
+                    sum+=anint;
+                }
+                if(sum>ans){
+                    ans= sum;
+                }
+            }
+            return ans;
+        }
+    }
 ## Program 27
 Given an array nums of integers, return how many of them contain an even number of digits.
 
@@ -209,24 +209,24 @@ Explanation:
 Therefore only 12 and 7896 contain an even number of digits
 
 ## Code:
-  class Solution {
-      public int findNumbers(int[] nums) {
-          int countEven=0;
-          for(int i=0;i<nums.length;i++){
-              int n=nums[i];
-              int countDigits=0;
-              while(n!=0){
-                  int rem=n%10;
-                  countDigits++;
-                  n=n/10;
-              }
-              if(countDigits%2==0){
-                  countEven++;
-              }
-          }
-          if(countEven==0){
-              return 0;
-          }
-          return countEven;
-      }
-  }
+    class Solution {
+        public int findNumbers(int[] nums) {
+            int countEven=0;
+            for(int i=0;i<nums.length;i++){
+                int n=nums[i];
+                int countDigits=0;
+                while(n!=0){
+                    int rem=n%10;
+                    countDigits++;
+                    n=n/10;
+                }
+                if(countDigits%2==0){
+                    countEven++;
+                }
+            }
+            if(countEven==0){
+                return 0;
+            }
+            return countEven;
+        }
+    }
