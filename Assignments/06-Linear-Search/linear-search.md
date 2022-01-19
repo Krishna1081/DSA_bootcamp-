@@ -155,3 +155,78 @@ Linear Search to find the minimum number in 2D Matrix
       }
   }
 
+# Day 18
+## Program 26
+You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer has.
+
+A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.
+
+ 
+
+Example 1:
+
+Input: accounts = [[1,2,3],[3,2,1]]
+Output: 6
+Explanation:
+1st customer has wealth = 1 + 2 + 3 = 6
+2nd customer has wealth = 3 + 2 + 1 = 6
+Both customers are considered the richest with a wealth of 6 each, so return 6.
+
+## Code:
+  class Solution {
+      public int maximumWealth(int[][] accounts) {
+          // person = rol 
+         // account = col
+          int ans  = Integer.MIN_VALUE;
+          for(int[] ints: accounts){
+          // when you start a new col, take a new sum for that row
+              int sum = 0;
+              for(int anint: ints){
+                  sum+=anint;
+              }
+              if(sum>ans){
+                  ans= sum;
+              }
+          }
+          return ans;
+      }
+  }
+## Program 27
+Given an array nums of integers, return how many of them contain an even number of digits.
+
+ 
+
+Example 1:
+
+Input: nums = [12,345,2,6,7896]
+Output: 2
+Explanation: 
+12 contains 2 digits (even number of digits). 
+345 contains 3 digits (odd number of digits). 
+2 contains 1 digit (odd number of digits). 
+6 contains 1 digit (odd number of digits). 
+7896 contains 4 digits (even number of digits). 
+Therefore only 12 and 7896 contain an even number of digits
+
+## Code:
+  class Solution {
+      public int findNumbers(int[] nums) {
+          int countEven=0;
+          for(int i=0;i<nums.length;i++){
+              int n=nums[i];
+              int countDigits=0;
+              while(n!=0){
+                  int rem=n%10;
+                  countDigits++;
+                  n=n/10;
+              }
+              if(countDigits%2==0){
+                  countEven++;
+              }
+          }
+          if(countEven==0){
+              return 0;
+          }
+          return countEven;
+      }
+  }
