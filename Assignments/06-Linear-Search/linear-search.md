@@ -165,11 +165,17 @@ A customer's wealth is the amount of money they have in all their bank accounts.
 
 Example 1:
 
+
 Input: accounts = [[1,2,3],[3,2,1]]
+
 Output: 6
+
 Explanation:
+
 1st customer has wealth = 1 + 2 + 3 = 6
+
 2nd customer has wealth = 3 + 2 + 1 = 6
+
 Both customers are considered the richest with a wealth of 6 each, so return 6.
 
 ## Code:
@@ -199,13 +205,21 @@ Given an array nums of integers, return how many of them contain an even number 
 Example 1:
 
 Input: nums = [12,345,2,6,7896]
+
 Output: 2
+
 Explanation: 
+
 12 contains 2 digits (even number of digits). 
+
 345 contains 3 digits (odd number of digits). 
+
 2 contains 1 digit (odd number of digits). 
+
 6 contains 1 digit (odd number of digits). 
+
 7896 contains 4 digits (even number of digits). 
+
 Therefore only 12 and 7896 contain an even number of digits
 
 ## Code:
