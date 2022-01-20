@@ -260,7 +260,7 @@ Example 1:
 Input: x = 4
 
 Output: 2
-## code:
+## Code:
     class Solution {
         public int mySqrt(int x) {
             if(x==0){
@@ -302,7 +302,7 @@ Example 1:
 Input: n = 10, pick = 6
 
 Output: 6
-## code:
+## Code:
         public class Solution extends GuessGame {
             public int guessNumber(int n) {
                 int start = 0; int end = n;
