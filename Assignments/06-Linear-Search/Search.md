@@ -244,3 +244,79 @@ Therefore only 12 and 7896 contain an even number of digits
             return countEven;
         }
     }
+    
+# Day 19
+## Program 28
+Given a non-negative integer x, compute and return the square root of x.
+
+Since the return type is an integer, the decimal digits are truncated, and only the integer part of the result is returned.
+
+Note: You are not allowed to use any built-in exponent function or operator, such as pow(x, 0.5) or x ** 0.5.
+
+ 
+
+Example 1:
+
+Input: x = 4
+
+Output: 2
+## code:
+    class Solution {
+        public int mySqrt(int x) {
+            if(x==0){
+                return 0;
+            }
+            int l = 1,h=x;
+            while(h>=l){
+                int mid = l+(h-l)/2;
+                if(mid > x/mid){
+                    h = mid-1;
+                }else if(mid < x/mid){
+                   l = mid + 1;
+                }else{
+                    return mid;
+                }
+            }
+            return l-1;
+        }
+    }
+## Program 29
+We are playing the Guess Game. The game is as follows:
+
+I pick a number from 1 to n. You have to guess which number I picked.
+
+Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess.
+
+You call a pre-defined API int guess(int num), which returns 3 possible results:
+
+-1: The number I picked is lower than your guess (i.e. pick < num).
+
+1: The number I picked is higher than your guess (i.e. pick > num).
+
+0: The number I picked is equal to your guess (i.e. pick == num).
+
+Return the number that I picked.
+
+Example 1:
+
+Input: n = 10, pick = 6
+
+Output: 6
+## code:
+        public class Solution extends GuessGame {
+            public int guessNumber(int n) {
+                int start = 0; int end = n;
+                while(start<=end){
+                    int mid = start+(end-start)/2;
+                    int pick= guess(mid);
+                    if(pick==0){
+                        return mid;
+                    }
+                    else if(pick== 1){
+                        start = mid+1;
+                    }else{
+                        end=mid-1;
+                    }
+                }return -1;
+            }
+        }
