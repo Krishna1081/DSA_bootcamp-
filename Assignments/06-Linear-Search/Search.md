@@ -320,3 +320,146 @@ Output: 6
                 }return -1;
             }
         }
+# Day 20
+## Program 30
+Ceiling in a sorted array 
+## Code:
+    package com.company;
+
+    public class Ceiling {
+        public static void main(String[] args) {
+            int[] arr = {2,3,5,14,16,19};
+            int target = 15;
+            int ans  = Find_Ceiling(arr,target);
+            System.out.println("Ceiling: " + ans);
+        }
+
+        private static int Find_Ceiling(int[] arr, int target) {
+            if (target > arr[arr.length-1]){
+                return -1;
+            }
+            int start = 0;
+            int end = arr.length-1;
+            while(start<=end){
+                int mid = start + (end-start)/2;
+                if (target < arr[mid]){
+                    end = mid - 1;
+                }else if(target > arr[mid]){
+                    start = mid + 1;
+                }else{
+                    return mid;
+                }
+            }
+            return start;
+        }
+    }
+## Program 31
+Floor in a sorted array 
+## Code:
+    package com.company;
+
+    public class Floor {
+        public static void main(String[] args) {
+            int[] arr = {2,3,5,14,16,19};
+            int target = 15;
+            int ans  = Find_Floor(arr,target);
+            System.out.println("Floor: " + ans);
+        }
+
+        private static int Find_Floor(int[] arr, int target) {
+            int start = 0;
+            int end = arr.length-1;
+            while(start<=end){
+                int mid = start + (end-start)/2;
+                if (target < arr[mid]){
+                    end = mid - 1;
+                }else if(target > arr[mid]){
+                    start = mid + 1;
+                }else{
+                    return mid;
+                }
+            }
+            return end;
+        }
+    }
+## Program 32
+Given a characters array letters that is sorted in non-decreasing order and a character target, return the smallest character in the array that is larger than target.
+
+Note that the letters wrap around.
+
+For example, if target == 'z' and letters == ['a', 'b'], the answer is 'a'.
+ 
+
+Example 1:
+
+Input: letters = ["c","f","j"], target = "a"
+
+Output: "c"
+## Code:
+    class Solution {
+        public char nextGreatestLetter(char[] letters, char target) {
+            int start = 0;
+            int end = letters.length-1;
+            while(start<=end){
+                int mid = start + (end-start)/2;
+                if (target < letters[mid]){
+                    end = mid - 1;
+                }else{
+                    start = mid + 1;
+                }
+            }
+            return letters[start % letters.length];
+        }
+    }
+## Program 33
+Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
+
+If target is not found in the array, return [-1, -1].
+
+You must write an algorithm with O(log n) runtime complexity.
+
+ 
+
+Example 1:
+
+Input: nums = [5,7,7,8,8,10], target = 8
+
+Output: [3,4]
+## Code:
+    class Solution {
+        public int[] searchRange(int[] nums, int target) {
+
+            int[] ans = {-1, -1};
+
+            int start = search(nums, target, true);
+            int end = search(nums, target, false);
+
+            ans[0] = start;
+            if(ans[0] != -1){
+                ans[1] = end;
+            }
+            return ans;
+        }
+        private static int search(int[] nums, int target, boolean findstartindex) {
+            int ans = -1;
+            int start = 0;
+            int end = nums.length - 1;
+            while (start <= end) {
+                int mid = start + (end - start) / 2;
+                if (target < nums[mid]) {
+                    end = mid - 1;
+                } else if (target > nums[mid]) {
+                    start = mid + 1;
+                } else {
+                    ans = mid;
+                    if (findstartindex) {
+                        end = mid - 1;
+                    } else {
+                        start = mid + 1;
+                    }
+                }
+            }
+            return ans;
+        }
+    }
+    
